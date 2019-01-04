@@ -39,3 +39,6 @@ label {
 
 .errorMsg {
   color: red; }
+
+.collapse {
+  display: none; }
