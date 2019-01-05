@@ -17,10 +17,10 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php $i = 1;
 foreach($users as $user): ?>
 <form action="deleted.php" method="get">
-    <label class="deleteUser" ><?php echo $user['name']?></label>
+    <label class="deleteUser" ><?php echo htmlspecialchars($user['name'])?></label>
     <input class="deleteBtn" type="submit" value="Remove">
-    <input type="hidden" name="deleteId" value=" <?php echo $user['id'] ?>">
-    <input type="hidden" name="deleteName" value=" <?php echo $user['name'] ?>">
+    <input type="hidden" name="deleteId" value=" <?php echo htmlspecialchars($user['id']) ?>">
+    <input type="hidden" name="deleteName" value=" <?php echo htmlspecialchars($user['name']) ?>">
     
 </form>
 

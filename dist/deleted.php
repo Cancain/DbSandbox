@@ -10,5 +10,5 @@ $query = "DELETE FROM users WHERE id=$id";
 
 $result = mysqli_query($connection, $query);
 ?>
-<div class="box2"><?php echo "Deleted user ". $_GET['deleteName'] ?></div>
+<div class="box2"><?php echo "Deleted user ". htmlspecialchars($_GET['deleteName']) ?></div>
 <?php include 'inc/footer.php' ?>

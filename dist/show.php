@@ -19,10 +19,10 @@ echo mysqli_error($connection);
 foreach($users as $user): ?>
     <h1><a href="#" id="<?php echo 'user'.$i ?>" 
     class="collapseBtn ">
-        <?php echo $user['name'] ?></a></h1>
+        <?php echo htmlspecialchars($user['name']) ?></a></h1>
     <div id="<?php echo 'collapse'.$i ?>" class="collapse" >
-        <p><?php echo $user['email'] ?></p>
-        <p><?php echo $user['comment'] ?></p>
+        <p><?php echo htmlspecialchars($user['email']) ?></p>
+        <p><?php echo htmlspecialchars($user['comment']) ?></p>
     </div>
 <?php $i++;
  endforeach; ?>
