@@ -16,8 +16,14 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <div class="box2">
 <?php $i = 1;
 foreach($users as $user): ?>
-    <h1><?php echo $user['name'] ?></h1>
-        <button>Remove</button>
+<form action="deleted.php" method="get">
+    <label class="deleteUser" ><?php echo $user['name']?></label>
+    <input class="deleteBtn" type="submit" value="Remove">
+    <input type="hidden" name="deleteId" value=" <?php echo $user['id'] ?>">
+    <input type="hidden" name="deleteName" value=" <?php echo $user['name'] ?>">
+    
+</form>
+
 <?php $i++;
  endforeach; ?>
 

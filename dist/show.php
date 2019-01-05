@@ -7,8 +7,9 @@ $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $query = 'SELECT * FROM users ORDER BY id DESC';
 
 $result = mysqli_query($connection, $query);
-
 $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+echo mysqli_error($connection);
 
 
 ?>

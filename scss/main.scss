@@ -1,9 +1,37 @@
+@mixin smallScreen {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin MediumScreen {
+  @media (max-width: 1552px) {
+    @content;
+  }
+}
+
+@mixin formInput {
+  border: 0;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
 body {
   background: black;
   color: green;
+
+  @include smallScreen() {
+    text-align: center;
+  }
 }
 
 #grid {
+  @include smallScreen() {
+    display: inline;
+  }
+
   display: grid;
   grid-template-columns: 0.5fr 0.5fr 1fr 1fr;
   grid-template-rows: 0.5fr 1fr 1fr;
@@ -17,6 +45,9 @@ a {
 .box1 {
   grid-column: 2;
   grid-row: 2;
+  @include MediumScreen() {
+    grid-column: 1;
+  }
 }
 
 .box2 {
@@ -30,6 +61,10 @@ ul {
 }
 
 li {
+  @include smallScreen() {
+    // margin-left: 0;
+    text-align: start;
+  }
   margin-top: 1rem;
   margin-left: 25%;
 }
@@ -41,6 +76,32 @@ li {
 form {
   margin-left: 0%;
   margin-top: 4%;
+}
+
+.formControl {
+  .input {
+    @include formInput();
+    width: 20vw;
+    @include smallScreen() {
+      width: 80vw;
+    }
+  }
+}
+
+.btn {
+  @include formInput();
+}
+
+.deleteUser {
+  font-size: 2rem;
+  margin: 0 0.5rem 0 0;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  color: red;
+  cursor: pointer;
 }
 
 label {
